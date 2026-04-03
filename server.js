@@ -9,6 +9,16 @@ const config = require("./config");
 
 const app = express();
 
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers.authorization || "";
+
+  if (!authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ message: "Missing token" });
+  }
+
+  next();
+}
+
 // Middleware
 app.use(express.json());
 app.use(cors({ origin: "*" }));

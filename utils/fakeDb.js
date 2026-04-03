@@ -12,6 +12,8 @@ const users = [
     role: "user",
   },
 ];
+[
+    {
     password: "userpass",
     role: "customer",
   },
