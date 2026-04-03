@@ -2,12 +2,16 @@ const users = [
   {
     id: 1,
     email: "demo@insecurepay.local",
-    password: "Password123",
+    password: process.env.ADMIN_PASSWORD,
     role: "admin",
   },
   {
     id: 2,
     email: "user@insecurepay.local",
+    password: process.env.USER_PASSWORD,
+    role: "user",
+  },
+];
     password: "userpass",
     role: "customer",
   },

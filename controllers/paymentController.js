@@ -12,16 +12,16 @@ async function processPayment(req, res) {
       email,
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 250));
-
-    const newTransaction = {
-      id: `txn_${Math.floor(Math.random() * 1000000)}`,
-      email: email || "unknown@customer.local",
-      cardNumber,
-      cvv,
-      expiryDate,
-      amount,
-      status: "approved",
+await new Promise((resolve) => setTimeout(resolve, 250));
+const newTransaction = {
+  id: `txn_${Math.floor(Math.random() * 1000000)}`,
+  email: email || process.env.DEFAULT_EMAIL || 'unknown@customer.local',
+  cardNumber,
+  cvv,
+  expiryDate,
+  amount,
+  status: "approved",
+};
       createdAt: new Date().toISOString(),
     };
 

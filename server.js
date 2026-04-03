@@ -15,8 +15,8 @@ app.use(cors({ origin: "*" }));
 
 // Routes
 app.use("/auth", authRoutes);
-app.use("/payment", paymentRoutes);
-app.use("/transactions", transactionRoutes);
+app.use("/payment", authenticateToken, paymentRoutes);
+app.use("/transactions", authenticateToken, transactionRoutes);
 
 // Health check
 app.get("/", (req, res) => {
